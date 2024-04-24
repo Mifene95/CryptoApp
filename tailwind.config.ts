@@ -53,9 +53,10 @@ const config: Config = {
         text2: "#D1D1D1",
       },
     },
-    spacing: {},
-    fontSize: {},
-    fontFamily: {},
+    fontFamily: {
+      font1: ["Space Grotesk", "sans-serif"],
+      font2: ["Inter", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
