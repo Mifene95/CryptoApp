@@ -1,3 +1,21 @@
+import Image from "next/image";
+
 export default function Search() {
-  return <div></div>;
+  return (
+    <div className="py-4 px-2 bg-slate-500 rounded-xl">
+      <div className="flex flex-row gap-3 items-center">
+        <Image
+          src="/search_logo.svg"
+          width={15.42}
+          height={15.42}
+          alt="Search logo"
+        />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="font-normal text-sm bg-slate-500 focus:outline-none"
+        />
+      </div>
+    </div>
+  );
 }
