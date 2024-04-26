@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Search() {
   return (
-    <div className="py-4 px-2 bg-slate-500 rounded-xl">
+    <div className="py-4 px-2 rounded-xl">
       <div className="flex flex-row gap-3 items-center">
         <Image
           src="/search_logo.svg"
@@ -13,7 +13,7 @@ export default function Search() {
         <input
           type="text"
           placeholder="Search..."
-          className="font-normal text-sm bg-slate-500 focus:outline-none"
+          className="font-normal text-sm  focus:outline-none"
         />
       </div>
     </div>

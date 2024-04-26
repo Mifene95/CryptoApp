@@ -2,6 +2,7 @@ import Logo from "./logo/Logo";
 import Home from "./home/Home";
 import Portfolio from "./portfolio/Portfolio";
 import Search from "./search/Search";
+import DropDown from "./dropdown/DropDown";
 
 export default function Navbar() {
   return (
@@ -11,8 +12,11 @@ export default function Navbar() {
         <Home />
         <Portfolio />
       </div>
-      <div>
-        <Search />
+      <div className="flex flex-row gap-4">
+        <div>
+          <Search />
+        </div>
+        <DropDown />
       </div>
     </div>
   );
