@@ -22,7 +22,7 @@ const config: Config = {
         pink: "#D878FA",
         orange: "#F7931A",
         bar_blue: "#849DFF",
-        lavender_blue: "#CCCFA",
+        lavender_blue: "#CCCCFA",
         text1: "#232336",
         text2: "#424286",
         text3: "#D1D1D1",

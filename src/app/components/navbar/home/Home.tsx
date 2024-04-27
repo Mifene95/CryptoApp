@@ -11,7 +11,10 @@ export default function Home() {
           height={24}
           alt="Home logo"
         />
-        <Link href="/" className="text-base font-medium">
+        <Link
+          href="/"
+          className="text-base font-medium font-font1 text-light-american_blue"
+        >
           Home
         </Link>
       </div>
