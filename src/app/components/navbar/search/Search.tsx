@@ -5,7 +5,7 @@ export default function Search() {
     <div className="py-4 px-2 rounded-xl">
       <div className="flex flex-row gap-3 items-center">
         <Image
-          src="/search_logo.svg"
+          src="/light/search_logo.svg"
           width={15.42}
           height={15.42}
           alt="Search logo"
