@@ -29,6 +29,7 @@ const config: Config = {
         text4: "#FFFFFF",
       },
       dark: {
+        white: "#FFFFFF",
         black_howl: "#1E1932",
         background: "#13121A",
         exodus: "#6161D6",
@@ -57,7 +58,12 @@ const config: Config = {
       font1: ["Space Grotesk", "sans-serif"],
       font2: ["Inter", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        "356": "356px",
+        "48": "48px",
+      },
+    },
   },
   plugins: [],
 };
