@@ -22,13 +22,14 @@ const config: Config = {
         pink: "#D878FA",
         orange: "#F7931A",
         bar_blue: "#849DFF",
-        lavender_blue: "#CCCFA",
+        lavender_blue: "#CCCCFA",
         text1: "#232336",
         text2: "#424286",
         text3: "#D1D1D1",
         text4: "#FFFFFF",
       },
       dark: {
+        white: "#FFFFFF",
         black_howl: "#1E1932",
         background: "#13121A",
         exodus: "#6161D6",
@@ -57,7 +58,12 @@ const config: Config = {
       font1: ["Space Grotesk", "sans-serif"],
       font2: ["Inter", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        "356": "356px",
+        "48": "48px",
+      },
+    },
   },
   plugins: [],
 };
