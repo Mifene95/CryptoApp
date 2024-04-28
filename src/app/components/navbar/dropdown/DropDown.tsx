@@ -19,20 +19,22 @@ export default function DropDown() {
         <span className="text-sm font-medium pr-2 font-font1 text-light-text2  dark:text-dark-white opacity-80">
           USD
         </span>
-        <svg
-          className="fill-light-american_blue dark:fill-dark-white"
-          width="8"
-          height="6"
-          viewBox="0 0 8 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6.99976 1.50024L3.99988 4.50012L1 1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <button>
+          <svg
+            className="fill-light-american_blue dark:fill-dark-white"
+            width="8"
+            height="6"
+            viewBox="0 0 8 6"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.99976 1.50024L3.99988 4.50012L1 1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );
