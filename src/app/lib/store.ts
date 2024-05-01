@@ -1,11 +1,12 @@
+"use client";
 import { configureStore } from "@reduxjs/toolkit";
+import themeReducer from "./features/theme.slice";
 
-export const makeStore = () => {
-  return configureStore({
-    reducer: {},
-  });
-};
+export const store = configureStore({
+  reducer: {
+    themeReducer,
+  },
+});
 
-export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore["getState"]>;
-export type AppDispatch = AppStore["dispatch"];
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
