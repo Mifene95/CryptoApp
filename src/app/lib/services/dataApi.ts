@@ -4,8 +4,12 @@ type Data = {
   data: {
     markets: number;
     active_cryptocurrencies: number;
-    total_market_cap: number;
-    total_volume: number;
+    total_market_cap: {
+      usd: number;
+    };
+    total_volume: {
+      usd: number;
+    };
     market_cap_percentage: number;
   };
 };
