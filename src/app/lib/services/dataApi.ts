@@ -10,7 +10,10 @@ type Data = {
     total_volume: {
       usd: number;
     };
-    market_cap_percentage: number;
+    market_cap_percentage: {
+      btc: number;
+      eth: number;
+    };
   };
 };
 

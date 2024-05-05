@@ -8,26 +8,24 @@ export default function Header() {
 
   const marketCap = data?.data.total_market_cap;
   const marketVolume = data?.data.total_volume;
+  const marketCapPercentage = data?.data.market_cap_percentage;
 
   let totalMarketCap = 0;
   let totalVolume = 0;
   let formatedMarketCap;
   let formatedVolume;
+  const btcPercentage = Math.floor(marketCapPercentage?.btc ?? 0);
+  const ethPercentage = Math.floor(marketCapPercentage?.eth ?? 0);
 
-  if (marketCap) {
-    for (const key in marketCap)
+  if (marketCap && marketVolume) {
+    for (const key in marketCap) {
       if (key === "usd") {
         totalMarketCap = marketCap[key];
-      }
-    formatedMarketCap = formatCompactNumber(totalMarketCap);
-  }
-
-  if (marketVolume) {
-    for (const key in marketVolume)
-      if (key === "usd") {
         totalVolume = marketVolume[key];
       }
-    formatedVolume = formatCompactNumber(totalVolume);
+      formatedVolume = formatCompactNumber(totalVolume);
+      formatedMarketCap = formatCompactNumber(totalMarketCap);
+    }
   }
 
   function formatCompactNumber(number: number) {
@@ -39,25 +37,27 @@ export default function Header() {
 
     return formatter.format(number);
   }
-  console.log(totalVolume);
+
   return (
-    <div>
-      <p>coins: {data?.data.active_cryptocurrencies}</p>
+    <>
+      <div>
+        <p>coins: {data?.data.active_cryptocurrencies}</p>
+      </div>
       <div>
         <p>Exchange: {data?.data.markets}</p>
-        <div>
-          <p>${formatedMarketCap}</p>
-          <div>
-            <p>${formatedVolume}</p>
-            <div>
-              <p>btc</p>
-              <div>
-                <p>eth</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+      <div>
+        <p>${formatedMarketCap}</p>
+      </div>
+      <div>
+        <p>${formatedVolume}</p>
+      </div>
+      <div>
+        <p>btc{btcPercentage}%</p>
+      </div>
+      <div>
+        <p>eth{ethPercentage}%</p>
+      </div>
+    </>
   );
 }
