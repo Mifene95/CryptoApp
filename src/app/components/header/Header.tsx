@@ -10,23 +10,13 @@ export default function Header() {
   const marketVolume = data?.data.total_volume;
   const marketCapPercentage = data?.data.market_cap_percentage;
 
-  let totalMarketCap = 0;
-  let totalVolume = 0;
-  let formatedMarketCap;
-  let formatedVolume;
+  const totalMarketCap = marketCap?.usd ?? 0;
+  const formatedMarketCap = formatCompactNumber(totalMarketCap);
+  const totalVolume = marketVolume?.usd ?? 0;
+  const formatedVolume = formatCompactNumber(totalVolume);
+
   const btcPercentage = Math.floor(marketCapPercentage?.btc ?? 0);
   const ethPercentage = Math.floor(marketCapPercentage?.eth ?? 0);
-
-  if (marketCap && marketVolume) {
-    for (const key in marketCap) {
-      if (key === "usd") {
-        totalMarketCap = marketCap[key];
-        totalVolume = marketVolume[key];
-      }
-      formatedVolume = formatCompactNumber(totalVolume);
-      formatedMarketCap = formatCompactNumber(totalMarketCap);
-    }
-  }
 
   function formatCompactNumber(number: number) {
     const formatter = new Intl.NumberFormat("en-US", {
@@ -34,7 +24,6 @@ export default function Header() {
       compactDisplay: "short",
       maximumFractionDigits: 2,
     });
-
     return formatter.format(number);
   }
 
