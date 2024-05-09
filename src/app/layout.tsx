@@ -17,12 +17,10 @@ export default function RootLayout({
     <html lang="en" className="">
       <Providers>
         <body className="bg-light-text4 dark:bg-dark-background">
-          <div className="flex flex-row justify-center gap-8 bg-light-american_blue dark:bg-dark-black_howl py-5 items-center">
+          <div className="flex flex-row justify-center gap-8 bg-light-american_blue dark:bg-dark-black_howl py-5 items-center h-56 rounded-t-lg">
             <Header />
           </div>
-          <div>
-            <Navbar />
-          </div>
+          <Navbar />
           {children}
         </body>
       </Providers>

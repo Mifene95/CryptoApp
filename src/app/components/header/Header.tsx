@@ -110,7 +110,12 @@ export default function Header() {
         <p className="font-font1 font-medium text-sm text-light-text4">
           ${formatedVolume}
         </p>
-        <div className="w-53 h-1.5 bg-dark-white opacity-40 ml-5"></div>
+        <div className="w-53 h-1.5 bg-dark-white opacity-40 ml-5 rounded-sm">
+          <div
+            className="bg-light-bar_blue h-1.5 rounded-sm"
+            style={{ width: "10%" }}
+          ></div>
+        </div>
       </div>
       <div className="flex flex-row items-center">
         <svg
@@ -143,7 +148,12 @@ export default function Header() {
         <p className="text-light-text4 font-medium font-font1 text-sm">
           {btcPercentage}%
         </p>
-        <div className="w-53 h-1.5 ml-5 bg-dark-white opacity-40 relative"></div>
+        <div className="w-53 h-1.5 ml-5 bg-dark-white opacity-40 relative rounded-sm">
+          <div
+            className="bg-light-bar_blue h-1.5 rounded-sm"
+            style={{ width: `${btcPercentage}%` }}
+          ></div>
+        </div>
       </div>
       <div className="flex flex-row items-center">
         <svg
@@ -191,7 +201,12 @@ export default function Header() {
         <p className="text-light-text4 font-medium font-font1 text-sm">
           {ethPercentage}%
         </p>
-        <div className="w-53 h-1.5 ml-5  bg-dark-white opacity-40"></div>
+        <div className="w-53 h-1.5 ml-5  bg-dark-white opacity-40 rounded-sm">
+          <div
+            className="bg-light-bar_blue h-1.5 rounded-sm"
+            style={{ width: `${ethPercentage}%` }}
+          ></div>
+        </div>
       </div>
     </>
   );
