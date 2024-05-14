@@ -1,3 +1,5 @@
+import MultipleItems from "./components/carousel/Carousel";
+
 export default function Home() {
   return (
     <>
@@ -32,6 +34,9 @@ export default function Home() {
               Compare
             </button>
           </div>
+        </div>
+        <div>
+          <MultipleItems />
         </div>
       </div>
     </>
