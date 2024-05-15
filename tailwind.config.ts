@@ -27,6 +27,7 @@ const config: Config = {
         text2: "#424286",
         text3: "#D1D1D1",
         text4: "#FFFFFF",
+        green2: "#077E77",
       },
       dark: {
         white: "#FFFFFF",
@@ -68,6 +69,9 @@ const config: Config = {
         "5": "5px",
         "56": "56px",
         "244": "244px",
+        "252": "252px",
+        "78": "78px",
+        "23": "23px",
       },
     },
   },
