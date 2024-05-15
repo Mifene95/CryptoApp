@@ -6,7 +6,7 @@ import DropDown from "./dropdown/DropDown";
 import Theme from "./theme/Theme";
 export default function Navbar() {
   return (
-    <div className="flex flex-row justify-between mt-2 h-48 ">
+    <div className="flex flex-row justify-between mt-2 h-48 mb-4">
       <Logo />
       <div className="flex flex-row gap-6 h-48">
         <Home />
