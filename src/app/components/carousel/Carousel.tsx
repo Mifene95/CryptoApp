@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useGetMarketDataQuery } from "@/app/lib/services/coinApi";
 
 interface SampleArrowProps {
   className?: string;
@@ -33,15 +34,27 @@ function SamplePrevArrow(props: SampleArrowProps) {
 }
 
 function MultipleItems() {
+  // eslint-disable-next-line no-unused-vars
+  const { data, error, isLoading, isFetching } = useGetMarketDataQuery({ vs_currency: "usd"});
+
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow onClick={function (): void {}} />,
-    prevArrow: <SamplePrevArrow onClick={function (): void {}} />,
+    nextArrow: <SampleNextArrow onClick={() => {}} />,
+    prevArrow: <SamplePrevArrow onClick={() => {}} />,
   };
+
+   if (isLoading || isFetching) {
+     return <div>Loading...</div>;
+   }
+
+   if (error) {
+     return <div>Error loading data</div>;
+  }
+  
   return (
     <div className="slider-container">
       <Slider {...settings}>
