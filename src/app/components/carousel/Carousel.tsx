@@ -106,19 +106,36 @@ function MultipleItems() {
                       {coin.current_price} USD
                     </span>
                     <div className="flex flex-row items-center gap-1">
-                      <svg
-                        className="fill-light-green2 dark:fill-dark-boubble"
-                        width="8"
-                        height="4"
-                        viewBox="0 0 8 4"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M4.00065 0.333008L0.667318 3.66634L7.33398 3.66634L4.00065 0.333008Z" />
-                      </svg>
-                      <span className="font-font1 font-normal text-light-green2 text-sm">
-                        {coin.price_change}
-                      </span>
+                    {coin.price_change > 0 ? (
+    <svg
+      className="fill-light-green2 dark:fill-dark-boubble"
+      width="8"
+      height="4"
+      viewBox="0 0 8 4"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4.00065 0.333008L0.667318 3.66634L7.33398 3.66634L4.00065 0.333008Z" />
+    </svg>
+  ) : (
+    <svg
+      width="8"
+      height="4"
+      viewBox="0 0 8 4"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M3.80013 3.66699L7.13346 0.333659L0.466797 0.333659L3.80013 3.66699Z" fill="#FE2264" />
+    </svg>
+  )}
+<span className={`font-font1 font-normal text-sm ${
+    coin.price_change > 0
+      ? "text-light-green2 dark:text-dark-boubble"
+      : "text-dark-peevish_red dark:text-dark-peevish_red"
+  }`}>
+  {Math.round(Math.abs(coin.price_change * 100)) / 100}%
+</span>
+
                     </div>
                   </div>
                 </div>
