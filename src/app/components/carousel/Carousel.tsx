@@ -70,7 +70,16 @@ function MultipleItems() {
     prevArrow: <SamplePrevArrow onClick={() => {}} />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1580,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1160,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -79,7 +88,7 @@ function MultipleItems() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 920,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -87,7 +96,7 @@ function MultipleItems() {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 650,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
