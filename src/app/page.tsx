@@ -3,7 +3,7 @@ import MultipleItems from "./components/carousel/Carousel";
 export default function Home() {
   return (
     <>
-      <div className="mx-72 mt-10">
+      <div className="mx-100 mt-10">
         <div className="flex flex-row mb-10">
           <div>
             <button className="w-244 rounded-md border px-3 py-4 border-light-stargate  text-light-text4 bg-light-exodus h-11 bg-opacity-50 font-font1 font-medium text-base flex items-center justify-center">

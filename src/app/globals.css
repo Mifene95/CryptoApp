@@ -44,3 +44,14 @@ body {
 .slick-list {
   margin: 0 -10px;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 30px !important;
+  line-height: 1;
+  opacity: 0.75;
+  color: white !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
