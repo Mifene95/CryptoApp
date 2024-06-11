@@ -1,4 +1,5 @@
 import MultipleItems from "./components/carousel/Carousel";
+import { Chart } from "./components/charts/chart";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
+        <Chart />
       </div>
     </>
   );
