@@ -9,9 +9,9 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { useGetMarketChartQuery } from "@/app/lib/services/marketChartApi";
 
 ChartJS.register(
   CategoryScale,
@@ -20,37 +20,54 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  
 );
 
 export const options = {
+  
   responsive: true,
   plugins: {
-    legend: {
-      position: "top" as const,
-    },
     title: {
       display: true,
-      text: "btc",
+      text: "",
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const CryptoChart = () => {
+  const { data, error, isLoading } = useGetMarketChartQuery({
+    coinId: "bitcoin",
+    vs_currency: "usd",
+    days: 6,
+    interval: "daily"
+  });
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: labels.map(() =>({ min: -1000, max: 1000 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    
-  ],
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+
+  if (!data || !data.prices) return <div>No data available</div>;
+
+  const prices = data.prices.map((price) => price[1]);
+  const timestamps = data.prices.map((price) => new Date(price[0]).toLocaleDateString());
+
+  const chartData = {
+    labels: timestamps,
+    datasets: [
+      {
+        label: "",
+        data: prices,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
+  return (
+  <div className="w-[632px] h-[404px]">
+    <Line options={options} data={chartData} />
+    </div>
+    );
+
 };
 
-export function Chart() {
-  return <Line options={options} data={data} />;
-}
+export default CryptoChart;

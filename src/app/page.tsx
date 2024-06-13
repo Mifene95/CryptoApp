@@ -1,7 +1,10 @@
+"use client";
 import MultipleItems from "./components/carousel/Carousel";
-import { Chart } from "./components/charts/chart";
+import { Chart } from "react-chartjs-2";
+import CryptoChart from "./components/charts/chart";
 
 export default function Home() {
+
   return (
     <>
       <div className="mx-100 mt-10">
@@ -39,7 +42,7 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
-        <Chart />
+        <CryptoChart />
       </div>
     </>
   );
