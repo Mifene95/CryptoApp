@@ -1,7 +1,7 @@
 "use client";
 import MultipleItems from "./components/carousel/Carousel";
-import { Chart } from "react-chartjs-2";
 import CryptoChart from "./components/charts/chart";
+import CryptoVolumeChart from "./components/charts/volumeChart";
 
 export default function Home() {
 
@@ -42,8 +42,12 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
-        <CryptoChart />
+        <div className="flex flex-row">
+         <CryptoChart />
+        <CryptoVolumeChart /> 
+        </div>
       </div>
+    
     </>
   );
 }
