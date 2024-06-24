@@ -19,17 +19,22 @@ ChartJS.register(
   PointElement,
   LineElement,
   Title,
-  Tooltip,
-  
+  Tooltip
 );
 
 export const options = {
-  
   responsive: true,
   plugins: {
     title: {
       display: true,
       text: "",
+    },
+  },
+  scales: {
+    y: {
+      ticks: {
+        display: false, // Hide y-axis labels
+      },
     },
   },
 };
@@ -39,7 +44,7 @@ const CryptoChart = () => {
     coinId: "bitcoin",
     vs_currency: "usd",
     days: 6,
-    interval: "daily"
+    interval: "daily",
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -48,7 +53,9 @@ const CryptoChart = () => {
   if (!data || !data.prices) return <div>No data available</div>;
 
   const prices = data.prices.map((price) => price[1]);
-  const timestamps = data.prices.map((price) => new Date(price[0]).toLocaleDateString());
+  const timestamps = data.prices.map((price) =>
+    new Date(price[0]).toLocaleDateString()
+  );
 
   const chartData = {
     labels: timestamps,
@@ -63,11 +70,10 @@ const CryptoChart = () => {
   };
 
   return (
-  <div className="w-[632px] h-[404px]">
-    <Line options={options} data={chartData} />
+    <div className="w-[632px] h-[404px]">
+      <Line options={options} data={chartData} />
     </div>
-    );
-
+  );
 };
 
 export default CryptoChart;

@@ -4,7 +4,6 @@ import CryptoChart from "./components/charts/chart";
 import CryptoVolumeChart from "./components/charts/volumeChart";
 
 export default function Home() {
-
   return (
     <>
       <div className="mx-100 mt-10">
@@ -42,12 +41,11 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
-        <div className="flex flex-row">
-         <CryptoChart />
-        <CryptoVolumeChart /> 
+        <div className="flex flex-row justify-center gap-[80px]">
+          <CryptoChart />
+          <CryptoVolumeChart />
         </div>
       </div>
-    
     </>
   );
 }

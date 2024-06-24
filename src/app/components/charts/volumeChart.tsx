@@ -8,29 +8,25 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useGetMarketChartQuery } from "@/app/lib/services/marketChartApi";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 
 export const options = {
   responsive: true,
   plugins: {
-    legend: {
-      position: "top" as const,
-    },
     title: {
       display: true,
-      text: "Crypto Volume Chart",
+      text: "",
+    },
+  },
+  scales: {
+    y: {
+      ticks: {
+        display: false, // Hide y-axis labels
+      },
     },
   },
 };
@@ -40,7 +36,7 @@ const CryptoVolumeChart = () => {
     coinId: "bitcoin",
     vs_currency: "usd",
     days: 7,
-    interval: "daily"
+    interval: "daily",
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -49,16 +45,18 @@ const CryptoVolumeChart = () => {
   if (!data || !data.total_volumes) return <div>No data available</div>;
 
   const volumes = data.total_volumes.map((volume) => volume[1]);
-  const timestamps = data.total_volumes.map((volume) => new Date(volume[0]).toLocaleDateString());
+  const timestamps = data.total_volumes.map((volume) =>
+    new Date(volume[0]).toLocaleDateString()
+  );
 
   const chartData = {
     labels: timestamps,
     datasets: [
       {
-        label: "Volume (USD)",
+        label: "",
         data: volumes,
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: "rgba(54, 162, 235, 0.5)",
+        borderColor: "rgba(54, 162, 235, 1)",
         borderWidth: 1,
       },
     ],
