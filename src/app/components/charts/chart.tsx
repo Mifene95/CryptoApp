@@ -9,6 +9,7 @@ import {
   LineElement,
   Title,
   Tooltip,
+  Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useGetMarketChartQuery } from "@/app/lib/services/marketChartApi";
@@ -19,7 +20,8 @@ ChartJS.register(
   PointElement,
   LineElement,
   Title,
-  Tooltip
+  Tooltip,
+  Filler
 );
 
 export const options = {
@@ -31,7 +33,15 @@ export const options = {
     },
   },
   scales: {
+    x: {
+      grid: {
+        display: false, // Hide x-axis grid lines
+      },
+    },
     y: {
+      grid: {
+        display: false, // Hide y-axis grid lines
+      },
       ticks: {
         display: false, // Hide y-axis labels
       },

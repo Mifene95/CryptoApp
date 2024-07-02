@@ -23,7 +23,15 @@ export const options = {
     },
   },
   scales: {
+    x: {
+      grid: {
+        display: false, // Hide x-axis grid lines
+      },
+    },
     y: {
+      grid: {
+        display: false, // Hide y-axis grid lines
+      },
       ticks: {
         display: false, // Hide y-axis labels
       },
