@@ -1,6 +1,7 @@
 "use client";
 import MultipleItems from "./components/carousel/Carousel";
 import CryptoChart from "./components/charts/chart";
+import TimeStamps from "./components/charts/timeStamps";
 import CryptoVolumeChart from "./components/charts/volumeChart";
 
 export default function Home() {
@@ -44,6 +45,9 @@ export default function Home() {
         <div className="flex flex-row justify-center gap-[80px]">
           <CryptoChart />
           <CryptoVolumeChart />
+        </div>
+        <div>
+          <TimeStamps />
         </div>
       </div>
     </>
