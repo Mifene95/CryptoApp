@@ -53,7 +53,7 @@ const CryptoChart = () => {
   const { data, error, isLoading } = useGetMarketChartQuery({
     coinId: "bitcoin",
     vs_currency: "usd",
-    days: 6,
+    days: 7,
     interval: "daily",
   });
 
@@ -73,16 +73,24 @@ const CryptoChart = () => {
       {
         label: "",
         data: prices,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgba(120, 120, 250, 1)",
+        backgroundColor: "rgba(120, 120, 250, 1)",
       },
     ],
   };
 
   return (
-    <div className="w-[632px] h-[404px]">
-      <Line options={options} data={chartData} />
-    </div>
+    <>
+      <div className="w-[620px] h-[216px] py-6 px-6">
+        <div className="flex flex-col">
+          <span>Bitcoin (Btc)</span>
+          <span>13/03/2023</span>
+        </div>
+        <div className="w-[584px]">
+          <Line options={options} data={chartData} />
+        </div>
+      </div>
+    </>
   );
 };
 

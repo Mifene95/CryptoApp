@@ -63,16 +63,22 @@ const CryptoVolumeChart = () => {
       {
         label: "",
         data: volumes,
-        backgroundColor: "rgba(54, 162, 235, 0.5)",
-        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(157, 98, 217, 1)",
+        borderColor: "rgba(157, 98, 217, 1)",
         borderWidth: 1,
       },
     ],
   };
 
   return (
-    <div className="w-[632px] h-[404px]">
-      <Bar options={options} data={chartData} />
+    <div className="w-[620px] h-[216px] py-6 px-6">
+      <div className="flex flex-col">
+        <span>Volume 24h </span>
+        <span>13/03/2023</span>
+      </div>
+      <div className="w-[584px]">
+        <Bar options={options} data={chartData} />
+      </div>
     </div>
   );
 };

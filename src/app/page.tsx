@@ -42,11 +42,15 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
-        <div className="flex flex-row justify-center gap-[80px]">
-          <CryptoChart />
-          <CryptoVolumeChart />
+        <div className="flex flex-row justify-center gap-[80px] h-[380px] mt-[40px]">
+          <div className=" dark:bg-dark-dark_knight rounded-xl">
+            <CryptoChart />
+          </div>
+          <div className=" dark:bg-dark-black_howl rounded-xl">
+            <CryptoVolumeChart />
+          </div>
         </div>
-        <div>
+        <div className="mt-6">
           <TimeStamps />
         </div>
       </div>
