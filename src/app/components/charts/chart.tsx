@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Chart as ChartJS,
@@ -35,25 +33,46 @@ export const options = {
   scales: {
     x: {
       grid: {
-        display: false, // Hide x-axis grid lines
+        display: false,
       },
     },
     y: {
       grid: {
-        display: false, // Hide y-axis grid lines
+        display: false,
       },
       ticks: {
-        display: false, // Hide y-axis labels
+        display: false,
       },
     },
   },
 };
 
-const CryptoChart = () => {
+const mapPeriodToDays = (period: string) => {
+  switch (period) {
+    case "1D":
+      return 1;
+    case "7D":
+      return 7;
+    case "14D":
+      return 14;
+    case "1M":
+      return 30;
+    case "1W":
+      return 7;
+    case "1Y":
+      return 365;
+    case "5Y":
+      return 1825;
+    default:
+      return 7;
+  }
+};
+
+const CryptoChart = ({ period }: { period: string }) => {
   const { data, error, isLoading } = useGetMarketChartQuery({
     coinId: "bitcoin",
     vs_currency: "usd",
-    days: 7,
+    days: mapPeriodToDays(period),
     interval: "daily",
   });
 
@@ -80,17 +99,15 @@ const CryptoChart = () => {
   };
 
   return (
-    <>
-      <div className="w-[620px] h-[216px] py-6 px-6">
-        <div className="flex flex-col">
-          <span>Bitcoin (Btc)</span>
-          <span>13/03/2023</span>
-        </div>
-        <div className="w-[584px]">
-          <Line options={options} data={chartData} />
-        </div>
+    <div className="w-[620px] h-[216px] py-6 px-6">
+      <div className="flex flex-col">
+        <span>Bitcoin (Btc)</span>
+        <span>{new Date().toLocaleDateString()}</span>
       </div>
-    </>
+      <div className="w-[584px]">
+        <Line options={options} data={chartData} />
+      </div>
+    </div>
   );
 };
 

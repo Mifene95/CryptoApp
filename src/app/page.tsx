@@ -1,10 +1,14 @@
 "use client";
+
 import MultipleItems from "./components/carousel/Carousel";
 import CryptoChart from "./components/charts/chart";
 import TimeStamps from "./components/charts/timeStamps";
-import CryptoVolumeChart from "./components/charts/volumeChart";
+import VolumeChart from "./components/charts/volumeChart";
+import React, { useState } from "react";
 
 export default function Home() {
+  const [selectedTimeRange, setSelectedTimeRange] = useState("7D");
+
   return (
     <>
       <div className="mx-100 mt-10">
@@ -44,14 +48,14 @@ export default function Home() {
         </div>
         <div className="flex flex-row justify-center gap-[80px] h-[380px] mt-[40px]">
           <div className=" dark:bg-dark-dark_knight rounded-xl">
-            <CryptoChart />
+            <CryptoChart period={selectedTimeRange} />
           </div>
           <div className=" dark:bg-dark-black_howl rounded-xl">
-            <CryptoVolumeChart />
+            <VolumeChart period={selectedTimeRange} />
           </div>
         </div>
         <div className="mt-6">
-          <TimeStamps />
+          <TimeStamps onChangePeriod={setSelectedTimeRange} />
         </div>
       </div>
     </>
