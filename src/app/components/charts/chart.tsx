@@ -81,8 +81,12 @@ const CryptoChart = ({ period }: { period: string }) => {
 
   if (!data || !data.prices) return <div>No data available</div>;
 
-  const prices = data.prices.map((price) => price[1]);
-  const timestamps = data.prices.map((price) =>
+  type PriceData = [number, number];
+
+  const priceDataArray = data.prices as unknown as PriceData[];
+
+  const prices = priceDataArray.map((price) => price[1]);
+  const timestamps = priceDataArray.map((price) =>
     new Date(price[0]).toLocaleDateString()
   );
 

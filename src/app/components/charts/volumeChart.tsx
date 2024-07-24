@@ -39,7 +39,7 @@ export const options = {
   },
 };
 
-const mapPeriodToDays = (period) => {
+const mapPeriodToDays = (period: string): number => {
   switch (period) {
     case "1D":
       return 1;
@@ -60,7 +60,9 @@ const mapPeriodToDays = (period) => {
   }
 };
 
-const CryptoVolumeChart = ({ period }) => {
+type PriceData = [number, number];
+
+const CryptoVolumeChart = ({ period }: { period: string }) => {
   const { data, error, isLoading } = useGetMarketChartQuery({
     coinId: "bitcoin",
     vs_currency: "usd",
@@ -73,8 +75,10 @@ const CryptoVolumeChart = ({ period }) => {
 
   if (!data || !data.total_volumes) return <div>No data available</div>;
 
-  const volumes = data.total_volumes.map((volume) => volume[1]);
-  const timestamps = data.total_volumes.map((volume) =>
+  const volumeDataArray = data.total_volumes as unknown as PriceData[];
+
+  const volumes = volumeDataArray.map((volume) => volume[1]);
+  const timestamps = volumeDataArray.map((volume) =>
     new Date(volume[0]).toLocaleDateString()
   );
 
@@ -91,9 +95,6 @@ const CryptoVolumeChart = ({ period }) => {
     ],
   };
 
-  CryptoVolumeChart.propTypes = {
-    period: PropTypes.string.isRequired,
-  };
   return (
     <div className="w-[620px] h-[216px] py-6 px-6">
       <div className="flex flex-col">
@@ -105,6 +106,10 @@ const CryptoVolumeChart = ({ period }) => {
       </div>
     </div>
   );
+};
+
+CryptoVolumeChart.propTypes = {
+  period: PropTypes.string.isRequired,
 };
 
 export default CryptoVolumeChart;
