@@ -75,7 +75,12 @@ const CryptoVolumeChart = ({ period }: { period: string }) => {
 
   if (!data || !data.total_volumes) return <div>No data available</div>;
 
-  const volumeDataArray = data.total_volumes as unknown as PriceData[];
+  let volumeDataArray = data.total_volumes as unknown as PriceData[];
+  const lastTimestamp = volumeDataArray[volumeDataArray.length - 1][0];
+  const secondLastTimestamp = volumeDataArray[volumeDataArray.length - 2][0];
+  if (lastTimestamp - secondLastTimestamp < 86400000) {
+    volumeDataArray = volumeDataArray.slice(0, -1);
+  }
 
   const volumes = volumeDataArray.map((volume) => volume[1]);
   const timestamps = volumeDataArray.map((volume) =>

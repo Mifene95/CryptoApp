@@ -83,7 +83,13 @@ const CryptoChart = ({ period }: { period: string }) => {
 
   type PriceData = [number, number];
 
-  const priceDataArray = data.prices as unknown as PriceData[];
+  let priceDataArray = data.prices as unknown as PriceData[];
+
+  const lastTimestamp = priceDataArray[priceDataArray.length - 1][0];
+  const secondLastTimestamp = priceDataArray[priceDataArray.length - 2][0];
+  if (lastTimestamp - secondLastTimestamp < 86400000) {
+    priceDataArray = priceDataArray.slice(0, -1);
+  }
 
   const prices = priceDataArray.map((price) => price[1]);
   const timestamps = priceDataArray.map((price) =>
