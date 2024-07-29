@@ -46,7 +46,7 @@ export default function Home() {
         <div>
           <MultipleItems />
         </div>
-        <div className="flex flex-row justify-center gap-[80px] h-[380px] mt-[40px]">
+        <div className="flex flex-row gap-[20px] h-[500px] mt-[40px]">
           <div className=" dark:bg-dark-dark_knight rounded-xl">
             <CryptoChart period={selectedTimeRange} />
           </div>

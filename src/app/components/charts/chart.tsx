@@ -109,12 +109,12 @@ const CryptoChart = ({ period }: { period: string }) => {
   };
 
   return (
-    <div className="w-[620px] h-[216px] py-6 px-6">
-      <div className="flex flex-col">
+    <div className="w-[850px] h-[216px]">
+      <div className="flex flex-col font-font1 font-normal dark:text-dark-white gap-5 items-center mt-5">
         <span>Bitcoin (Btc)</span>
         <span>{new Date().toLocaleDateString()}</span>
       </div>
-      <div className="w-[584px]">
+      <div className="w-[850px]">
         <Line options={options} data={chartData} />
       </div>
     </div>
